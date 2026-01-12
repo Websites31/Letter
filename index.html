@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Letter 💖</title>
+<style>
+body{
+  margin:0;
+  font-family:"Segoe UI",sans-serif;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+  overflow:hidden;
+}
+
+/* center */
+.center{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+}
+.backBtn, .nextBtn{
+  margin:0 6px;
+}
+
+/* buttons */
+button{
+  padding:10px 26px;
+  border:none;
+  border-radius:22px;
+  font-size:15px;
+  cursor:pointer;
+}
+.yes{background:#e63946;color:#fff;}
+.no{background:#444;color:#fff;}
+
+.envelope{
+  width:200px;
+  height:140px;
+  background:#ffb3c1;
+  border-radius:8px;
+  position:relative;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+.envelope::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  border-left:100px solid transparent;
+  border-right:100px solid transparent;
+  border-top:70px solid #ff8fab;
+}
+
+.envelope .heart{
+  position:absolute;
+  top:50px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:28px;
+  animation:beat 1s infinite;
+}
+@keyframes beat{
+  0%,100%{ transform:translateX(-50%) scale(1);}
+  50%{ transform:translateX(-50%) scale(1.2);}
+}
+
+/* letter screen */
+.letterScreen{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#fff8f8;
+  padding:15px;
+  overflow:auto;
+}
+
+/* card */
+.card{
+  max-width:720px;
+  margin:20px auto;
+  background:#fff;
+  border-radius:18px;
+  padding:24px 26px;
+  box-shadow:0 25px 60px rgba(0,0,0,0.25);
+  animation:openCard 0.8s ease;
+}
+@keyframes openCard{
+  from{transform:scale(0.85);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+
+.card h1{
+  margin:8px 0 14px;
+  color:#e63946;
+}
+
+.letterText{
+  font-size:16px;
+  line-height:1.75;
+  white-space:pre-line;
+  text-align:justify;
+}
+
+/* AUTO HIGHLIGHTS */
+.cap-highlight{
+  color:#e63946;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.quote-highlight{
+  background:rgba(230,57,70,0.12);
+  color:#e63946;
+  font-style:italic;
+  padding:2px 6px;
+  border-radius:6px;
+}
+
+/* next button */
+.nextBtn{
+  display:block;
+  margin:28px auto 6px;
+  background:#e63946;
+  color:#fff;
+}
+
+/* flying hearts */
+.flyHeart{
+  position: fixed;
+  bottom: -30px;
+  font-size: 15px;           /* 🔥 BIGGER */
+  z-index: 9999;             /* 🔥 ABOVE ALL */
+  pointer-events: none;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.35)); /* 🔥 contrast */
+  animation: fly 6s linear forwards;
+}
+@keyframes fly{
+  0%{opacity:0;transform:translateY(0);}
+  10%{opacity:1;}
+  100%{opacity:0;transform:translateY(-110vh);}
+}
+
+
+.signature{
+  text-align:right;
+  color:blue;
+  font-weight:600;
+}
+.disclaimer{
+  margin-top:14px;
+  font-size:13px;
+  color:#555;
+  max-width:280px;
+  text-align:center;
+  opacity:0.8;
+}
+
+/* broken */
+.broken{
+  display:none;
+  background:#000;
+  color:#fff;
+}
+
+/* toggle button */
+.heartToggle{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:9999;
+  padding:8px 16px;
+  border:none;
+  border-radius:20px;
+  background:#e63946;
+  color:#fff;
+  font-size:14px;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+}
+
+.letterActions{
+  text-align:center;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- Q -->
+
+
+<div class="center" id="q1">
+  <h2>Do you want a letter? 💌</h2>
+  <div class="btnGroup">
+    <button class="yes" onclick="showEnvelope()">YES</button>
+    <button class="no" onclick="showBroken()">NO</button>
+  </div>
+</div>
+
+
+<!-- Envelope -->
+<div class="center" id="envelopeBox" style="display:none;">
+  <div class="envelope" onclick="openLetter()">
+    <div class="heart">❤️</div>
+  </div>
+  <p class="disclaimer">
+    If flying hearts feel distracting, you can turn them OFF using the toggle.
+  </p>
+</div>
+
+<!-- Letter -->
+<div class="letterScreen" id="letterScreen">
+<div class="card">
+	<h1>Dear Priya,</h1>
+<div class="letterText">
+Romba time nee enta ketruka letter venum nu unakaadha dha ithu.
+Elame solanum nu thoonuchu so soliruken.
+Porumaiya read pannu, break edutho free ah irukum pothu elam read pannu.
+Indha letter epavume unakaaga available ah irukum.
+
+"JUNE 2019" -- CSE DEPARTMENT -- FRIEND, SIGHT, LOVE, MISUNDERSTOOD, FIGHT
+
+Apo dha first naa una paathen but unta avalova pesnathu ila ena ena pesirukom just normal person pesna maari..Aprm oru naal naa unta enoda thing keela vilunthutu eduthu kuduku nu keten apo kuda andha thing vachi play dha panitu irundhom..Unta eduthudha nu keta apo nee fun ah "Vera vela polappu ila" nu sonna because nee anga pesrathula busy ah irundha..But nee sonna apo naa namma frnds sirikadha senjom..Apo enaku pidichathu unaku enaku fun ah yarachum pesna pidikum so enaku normal person maari ilama unta pesanum nu thoonuchu..Namalum elar kudaiyum pesi frnds aagitom..
+	
+	Naa epavum onu venum nah atha focus panuven..apditha dha unaiyum panen nee varatha windows la pathuruven..classroom la entry kudukurathiyum pakanum nu thoonum paapen andha "Kannu" oru maari look vidum semmaiya irukum..Enaku unoda eyes pidikum..Apdiye unaiyum pidika start aagura stage..
+	Apdiye pesa jolly ah irundhathu..Aprm enaku un kai pudikanum nu apave aasa ana enoda kai ilama elar kudaiyum un kai irukum..Apodha lap la oru idea panen..execute um paniyachu naa kai pudikeren pic edukanga nu namma frnds ta soliyachu avangalum eduthutanga..Rmba happy naanu..Enaku ena nah unoda kai pudikanum avalodha but nee andha pic video paathutu indha venam indha kai kudukuren nu second time um kudutha..Luckiest person naandha..One time pudicha pothum nu irundhen..but second time um un kai enta vandhathu..Inum konjam una pidichiruchu..
+	
+	Aprm Enaku elar kudaiyum pesa fun panna silent ah irundha avanga kuda pesa nu irupen..Apo oru aal ta chocolate keten avangata athu elam pannadha nu solavum kovam vandhutu poiten..Aprm konja naal, neeye enaku chocolate vangi kudutha..Semma feel kekamale kudukura nu enaku inside la semma feel but outside la venam nu scene poten..neeyum feel aagitu poita nee enmela kochitu porathu enaku rmba pidichathu enaku control panna mudila sirikeren..namma frnds naa sirikeratha paathu pyscho va d nee..alura pesnu po nu solranga ana enaku apo thoonala..Veetuku poitu pesa vai help panu nu soliten..Pananga neeyum pesna..Apavum enmela kovam dha unaku irundhalum enta irundha bush bush nu sound vandhathu paatha alura ena nu keta chocolate ku athu oru maari pochu...Aprm lunch la elarum poitanga naangalum veliya polam nu irundhom elarum kupduranga nee varala seri rtyu nu kaiya pidichen again neeyum vandhuta...Ok aagiruchu, una frnd ah paathen ana apdiye kjm mattum vera maari paka start pannen..Ana veliya kaatikala..Apave kiss um paniruken..Pidichadha mattum panuven elartiyum elam panna maaten..
+	
+	Silathu nee panrathu enaku pidikadhu kovam varum expose panna mudiyama irupen..Ana nee enta varathu irukurathu elame naa enjoy paniruken..Aprm enaku oru maari aagum, seri nxt poga venam ithulaiye vitralam nu decide panen..Apodha vera oruthi entry kudutha, kjm divert aanen..Nee panrathu kovam nu sonen atha apdiye free ah vida start panen..Aprm Inum rmba iruku codekata la onu nee enta pesala naa ena panen kuda enaku thrla andha day enta pesave ila, nxt day smile panra enaku kovam naa ignore panen nee varuva nu ana nee varala..Aprm enala apave mudila, aprm namma frnd ta ena prlm nu kelu d nu sonen ketanga nee onum ila apdi ila nu solita Feb 15 apo enaku snap la msg panra semma feel apo irundhu ipo varaikum un msg vandha..
+	
+	CORONA TIME
+	
+	Aprm konja naal dha corona vandhutu, neeya msg panuva nalla irukum..Sila naal neeye ethachum pesiruva oru maari irukum aprm neeye varuva apdiye pochu..Apavum sanda naa expect pannadhu naala react panite pic keten enaku anupala ana vera persons ku send paniruka nu therinja avalodha enaku mandaiku eritu pesa venam nu viten..Nee apo irundhu ipo vara send panitu delete panra maari panita naanum ethuvum kekala..Sila neram snap la face anupuva enaku provoke aagirum pakanum pesanum nu vandhen ana nee mathikala rmba time vandhen ana nee enda pesra nu pesna avalodha athoda over viten college vara solitanga naa pesala unta, neeyum silent aagata nu elam sonanga..Andha time la ground la irupom la nee thaniya frnd kuda pova again enaku andha possessive start aachu.. Naa inga iruken la inga irundhute pesu naa pathutaachu irupen la nu thoonum..Aprm konjam pesnen, namma frnds ta keka sonen call la kekura maari, irundhen naanu call la, sonna nee ava enta pesraala apdi nu pesitu irundha athu elame keten neeyum ava irukala call la irukura maari iruku nu sense panita..Aprm pesa start panen..
+	
+	AFTER CORONA
+	
+	Aprm dha "Love", Class la irukum pothu casual ah kai pidipom apo elame semma feel butterflies varum..Entaiye dha irupa athuku elam priceless avalo worth avalo happy avalo enjoy panirupen nee irukum pothu athuvum enta irukum pothu.. IV elame ponom nalla irundhathu..Aprm place aagitom, aprm dha full ah jolly ah enkudaiye irundha..Aprm second IV elame nalla irundhathu naa full ah unta irundhurukanum nu iruku ipo nenaicha maraka mudiyatha naal nah "nov 7" Enaku first kiss panna ne semmaiya feel aachu kiss panitu andha side window patha aprm entaiye vandha una nalla pudichiketen elame dream nu nenaichen but real. Aprm Papa vandhuta nu rmba happy nee enakum happy apavum kiss paniruka..Then elam semmaiya pochu nee work place poita una rmba thedunen msg varum notification pakura apo avalo happy ah irukum..Unkuda avalo neram msg la dha pesitu irupen aprm call ku convert aanom nt to mrng varaikum pesnathu song ketathu elame oru maari fulfill aana maari..Nee sonna naa elame panrathu athu elame oru semma feel dha.. apo elam unoda name ketale butterflies dha nenaichale varum..Avalo love la irundhurukken neeyum athe dha..
+	
+	HEARTBOUND
+	
+	Before corona nee elar maariyum irupa, after corona la ena change aagiruku nah naa una pakuratha change panen frnd to love ah..Oru song kuda solalam "Suthi suthi unnai thedi vizhigal alaiyum avasaram yeno, Satha satha nerisalil un sol sevigal ariyum athisayam yeno"..una paatha mattum andha song sing pananum nu thoonum apo, athu ena nah "Andru paarthathu, antha paarvai veradi, Intha paarvai veradi"..Aprm movies nah naa rmba paapen athula rmba movies una nenaichi pathuruken chinna vayasula patha movies kuda una paatha maari athe paatha athu nee dha nenaichi paapen..Perazhagan movie la surya jo va priya priya nu solrathu, Vaaranam Aayiram movie la second ah vara actress andha Priya maari, Priyamanavale movie la vijay Priya Priya nu solrathu elame enaku pidikum "so naa apdi paathu rasichu kupta oru person nah athu nee dha priya" Most favorite nah connected nu solikalam athuvum vijay movie dha "Vaseegara" athulaiyum Priya dha avanga panrathu elame enaku apdiye namma panra maari feel aachu like love,fight,tease, possessive elame..Sometimes enaku una pakura apo "Shalini,Sneha" maari enaku thoonum, inum ena nah yara paathalum unoda behavior ah irundha unna maari dha nu feel aagiruku..Ipdi rmba solite polam..Movies laiyum Oh my kadavule movie laiyum last ah avanga court la kiss panna apavum enaku unadha thoonum epa paathalum atha..Ithu elam paathathu naala dha Priya nu una kupta thoonuchu..Sila neram unoda name solite irupen enaku kupta pidikum naa evalo time kuptalum koavme pataama ahh ahh solu nu soliruka elame pidikum enaku.."Frst Bike la long la ponathu elame marakave mudiyathu"..Ipdi namma first panathu elame marakama elame neyabakam iruku..Nee enaku letter write panathu, addicted nu sonnathu, video edit panathu,alaga story la vdo poturathu edit panrathu, quotes anupurathu,elame pidikum respect paniruken i love it..
+	
+	ONLY LOVE
+	
+	Apo apo ena paka veetuku varuva apo elame "Chinrasu va kaila pidika mudiyathu" nee varuva nu therinjitale enaku thoongame varuthu epo da andha day varum nu wait panitu irupen..Naa ena sonnalum "seri seri nu kepa elame panuva enaku pidikum athu".. Apo apo chinna chinna kovam sanda athu elam rasikera maari avalo super ah irukum sanda vandha kuda happy ah dha irukum..Oru time elam kiss ye iva panna maatala nu irukum pothu nee panna, aprm lip la kudutha athu elam enaku unta irundhu kiss vanganum kudukanum apo namma ooruku pona apo kisses elam unlimited inum atha nenaicha semma feel eyes laiye iruku andha moment elame..Aprm inum namma forward ah poitom ithu plan panniya ilana athuve nadandhatha nah rendume nu solikalam..Aprm oru oru time ena paka vara apo elam jolly dha movie poitu saptu loves panitu athu elam oru jolly oru kaalam..Ipo athu elame naa romba miss panren.."Unta irukura feel unta mattum dha irukum, yartiyum expect panna maaten atha"..
+	
+	STILL YOU AND ME
+	
+	Ipava varaikum rmba heart breaks unakum enakume rmba hurt aagirukom suffer aagirukom words elam rmbave vitukom verupu kovam sanda ego attitute inum evalo irundhalum, naa unta dha varen neeyum athe dha 1% LOVE irundha kuda pothum again fix aagurathuku ipava varaikum apditha poguthu..Kovam irukum dha unakum enakum ana END paniralam nu nenaichathu ila..Epdi naalum hope irukum la nee varuva naa varuven nu athu dha rule panitu iruku..Enala rmba naal elam iruka mudiyathu una vitu "kandipa naa unakaaga irupen last varaikum evalo fights argue panalum naa unta varuven unta mattum ego pakama varuven self respect um unta naa pathathu ila ena naalum heal panrathuku time eduthutu unta dha varuven vandhuruken"..Athuku ena ivadhana epdi naalum varuva nu nenaikadha.. A FAVORITE PERSON IS ALWAYS A FAVORITE PERSON, THAT WILL NEVER CHANGE..Betray pannada varaikum ithu en solren nah andha quote ku counter kudupa athan sonen..But andha quote FROM THE BOTTOM OF MY HEART, I TRULY SPOKE ABOUT YOU..
+	
+	MANIFESTATION
+	
+	Naa focus panen nu sonen la athu elam naa unkuda nenaichathu unkuda epdi irukanum nu nenaichathu elame dha nadandhuruku..So manifestation unmai dha ena keta..Ipavum athe dha panren, Nxt birth nu onu enakum unakum irundha, athula una kandipa miss panna maaten.. yarukume una naa vitu kudukave maaten.. enaku mattum dha nee, nee dha venum yarukum share panna maaten apdi nee enake enaka venum..
+	
+										"LET'S HOPE" I WANT YOU, ONLY YOU,IN MY NEXT LIFE AS A (GIRL) LIFE PARTNER    </div><br><br>
+<div class="signature">
+  — Forever Yours ❤️<br>
+  Sparkle
+</div>
+</div>
+<div class="letterActions">
+  <button class="backBtn" onclick="goBack()">CLOSE ❌</button>
+
+</div>
+</div>
+
+<!-- Broken -->
+<div class="center broken" id="broken">
+  <h2>It's Okay 😌</h2>
+  <p>You will always live in my heart 💔</p>
+</div>
+
+<!-- Toggle button -->
+<button id="heartToggle" class="heartToggle">❤️ Effects: ON</button>
+
+<script>
+
+/* Elements */
+const q1 = document.getElementById("q1");
+const envelopeBox = document.getElementById("envelopeBox");
+const letterScreen = document.getElementById("letterScreen");
+const broken = document.getElementById("broken");
+
+let effectsOn = true;
+let heartInterval;
+
+/* Flow functions */
+function showEnvelope(){
+  q1.style.display = "none";
+  envelopeBox.style.display = "flex";
+  startHearts();
+}
+
+function openLetter(){
+  envelopeBox.style.display = "none";
+  letterScreen.style.display = "block";
+  startHearts();
+  applyHighlights();
+}
+
+function sendMail(){
+  const subject = encodeURIComponent("I loved your letter ❤️");
+  const body = encodeURIComponent(
+    "Hi Sparkle,\n\nI really loved your letter.\nIt touched my heart.\n\n— Forever Yours ❤️"
+  );
+
+  window.location.href =
+    "mailto:srswetha36@gmail.com?subject=" + subject + "&body=" + body;
+}
+
+
+function showBroken(){
+  q1.style.display = "none";
+  broken.style.display = "flex";
+}
+function goBack(){
+  clearInterval(heartInterval);
+
+  // close letter
+  letterScreen.style.display = "none";
+
+  // hide envelope also
+  envelopeBox.style.display = "none";
+
+  // show YES / NO page
+  q1.style.display = "flex";
+}
+
+/* Highlights for quotes/caps */
+function applyHighlights(){
+  const blocks = document.querySelectorAll(".letterText");
+  blocks.forEach(b=>{
+    let html = b.innerHTML;
+    html = html.replace(/"([^"]+)"/g, `<span class="quote-highlight">"$1"</span>`);
+    html = html.replace(/\b([A-Z][A-Z\s,&!()\-]{3,})\b/g, `<span class="cap-highlight">$1</span>`);
+    b.innerHTML = html;
+  });
+}
+
+/* Next button action */
+/*function nextAction(){
+  const ans = prompt("Do you want to see our pictures? Type 'pic' for yes, 'no' for no.");
+  if(!ans) return;
+  if(ans.toLowerCase() === "pic"){
+    letterScreen.style.display="none";
+    imageView.style.display="flex";
+  } else {
+    alert("Better luck next time 🙂");
+  }
+}*/
+
+/* Back to letter */
+function backToLetter(){
+  imageView.style.display = "none";
+  letterScreen.style.display = "block";
+}
+
+/* Flying hearts */
+/*function startHearts(){
+  heartInterval = setInterval(()=>{
+    if(!effectsOn) return;
+    const h = document.createElement("div");
+    h.className = "flyHeart";
+    h.innerHTML = "❤️";
+    h.style.left = Math.random()*100 + "vw";
+    h.style.animationDuration = (4+Math.random()*4) + "s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(), 8000);
+  }, 350);
+}*/
+function startHearts(){
+  clearInterval(heartInterval);
+  if(!effectsOn) return;
+
+  // hearts only when envelope OR letter visible
+  if(
+    envelopeBox.style.display !== "flex" &&
+    letterScreen.style.display !== "block"
+  ) return;
+
+  heartInterval = setInterval(()=>{
+    const h = document.createElement("div");
+    h.className = "flyHeart";
+    h.innerHTML = "❤️";
+    h.style.left = Math.random() * 100 + "vw";
+
+    document.body.appendChild(h);
+
+    setTimeout(()=>h.remove(),6000);
+  },600);
+}
+
+/* Toggle hearts */
+heartToggle.onclick = () => {
+  effectsOn = !effectsOn;
+  heartToggle.innerText = effectsOn ? "❤️ Effects: ON" : "💔 Effects: OFF";
+  if(!effectsOn) clearInterval(heartInterval);
+  else startHearts();
+};
+
+</script>
+
+</body>
+</html>
